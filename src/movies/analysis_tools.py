@@ -210,7 +210,6 @@ def get_movie_pcountries(filename):
         for pcountry in pcountries:
             entry = MoviePCountry(movie_id=movie.get('id'), iso_3166_1=pcountry['iso_3166_1'])
             entries.append(entry)
-
     return entries
 
 
