@@ -130,7 +130,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# custom
 /src/data/
 /backup/
 /migrations_movies_s3964/data/
 /src/movies_s3964/data/
+/src/files/database.sqlite

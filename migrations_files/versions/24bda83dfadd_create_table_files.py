@@ -26,8 +26,8 @@ def upgrade() -> None:
         extension TEXT CHECK(extension LIKE '.%'),
         type TEXT NOT NULL CHECK(type = 'f' OR type = 'd'),
         mode TEXT NOT NULL CHECK(mode LIKE '[d-]([r-][w-][x-]){3}'),
-        parent_text TEXT NOT NULL,
-        full_path TEXT NOT NULL CHECK(full_path = parent_text || basename || extension)
+        parent_path TEXT NOT NULL,
+        full_path TEXT NOT NULL CHECK(full_path = parent_path || basename || IFNULL(extension, ''))
     )""")
 
 
