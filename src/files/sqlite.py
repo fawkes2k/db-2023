@@ -1,11 +1,6 @@
-from dotenv import load_dotenv
-from os import getenv
 from aiosqlite import connect
 from asyncio import run
 from model import File
-
-load_dotenv()
-FILENAME = getenv('FILENAME')
 
 class SQLite:
     async def initialize(self, file: str):
@@ -23,9 +18,11 @@ class SQLite:
 
 async def main_():
     sqlite = SQLite()
-    await sqlite.initialize(FILENAME)
+    await sqlite.initialize('database.sqlite')
     files = await sqlite.get_files()
     file = await sqlite.get_file(2023)
+    print(files[111])
+    print(file)
 
 if __name__ == '__main__':
     run(main_())
