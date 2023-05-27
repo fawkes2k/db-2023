@@ -23,9 +23,9 @@ def upgrade() -> None:
         accessed TIMESTAMP NOT NULL,
         modified TIMESTAMP NOT NULL,
         basename TEXT NOT NULL,
-        extension TEXT CHECK(extension LIKE '.%'),
+        extension TEXT CHECK(extension ~ '^.[0-9a-zA-z]{1,}$'),
         type TEXT NOT NULL CHECK(type = 'f' OR type = 'd'),
-        mode TEXT NOT NULL CHECK(mode LIKE '[d-]([r-][w-][x-]){3}'),
+        mode TEXT NOT NULL CHECK(mode ~ '^[d-]([r-][w-][x-]){3}$'),
         parent_path TEXT NOT NULL,
         full_path TEXT NOT NULL CHECK(full_path = parent_path || basename || coalesce(extension, ''))
     )""")

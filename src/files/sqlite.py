@@ -2,6 +2,7 @@ from aiosqlite import connect
 from asyncio import run
 from model import File
 
+
 class SQLite:
     async def initialize(self, file: str):
         self.connection = await connect(file)
